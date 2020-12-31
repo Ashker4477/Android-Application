@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+  compileSdkVersion versions.compileSdk
+
+  defaultConfig {
+    minSdkVersion versions.minSdk
+    consumerProguardFiles 'consumer-proguard-rules.txt'
+  }
+
+  compileOptions {
+    sourceCompatibility versions.sourceCompatibility
+    targetCompatibility versions.targetCompatibility
+  }
+
+  lintOptions {
+    textOutput 'stdout'
+    textReport true
+    lintConfig rootProject.file('lint.xml')
+  }
+
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
+    }
+  }
+}
+
+dependencies {
+  api deps.okhttp
+  api deps.okio
+  api deps.androidxLifecycle
+  implementation deps.androidxAnnotations
+  implementation deps.androidxCore
+  implementation deps.androidxExifInterface
+  implementation deps.kotlinStdlibJdk8
+
+  testImplementation deps.junit
+  testImplementation deps.truth
+
+  annotationProcessor deps.nullaway
+}
+
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

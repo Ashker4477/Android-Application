@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LoginApp</string>
+    <string name="register">Register</string>
+    <string name="t_talready_a_user_click_here_to_login">\t\talready a user??..click here to login..</string>
+    <string name="password">password</string>
+    <string name="phone_number">phone number</string>
+    <string name="email">email</string>
+    <string name="name">Name</string>
+    <string name="profilepic">Profilepic</string>
+</resources>

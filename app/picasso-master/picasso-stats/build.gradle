@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+  compileSdkVersion versions.compileSdk
+
+  defaultConfig {
+    minSdkVersion versions.minSdk
+  }
+
+  compileOptions {
+    sourceCompatibility versions.sourceCompatibility
+    targetCompatibility versions.targetCompatibility
+  }
+
+  lintOptions {
+    textOutput 'stdout'
+    textReport true
+    lintConfig rootProject.file('lint.xml')
+  }
+}
+
+dependencies {
+  implementation deps.kotlinStdlibJdk8
+  implementation deps.androidxCore
+  api deps.okio
+
+  api project(':picasso')
+}
+
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
